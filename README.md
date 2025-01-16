@@ -272,3 +272,107 @@ Time Complexity:
 𝑂(𝑛), where n is the size of the matrix (number of rows or columns). We only need to iterate through the matrix once.
 Space Complexity: 
 𝑂(𝑛2), for storing the matrix.
+
+Problema 11
+Explanation:
+sherlock_and_anagrams function:
+We initialize a variable pair_count to store the number of anagram pairs.
+substring_map is a HashMap that stores how many times each sorted substring has been encountered.
+We generate all possible substrings by using two nested loops (i and j), where i is the start index and j is the end index of the substring.
+We then sort the characters of each substring to get the sorted version. Sorting helps identify anagrams because two anagrams will have the same sorted character sequence.
+We check if this sorted substring has appeared before by looking it up in the substring_map. If it has appeared k times before, we add k to the pair_count.
+After processing, we increment the count of this sorted substring in the substring_map.
+main function:
+We read the number of queries.
+For each query, we read the string s and call sherlock_and_anagrams to compute the number of anagrammatic pairs for that string.
+The result for each query is printed.
+Example:
+Sample Input 0:
+2
+abba
+abcd
+Explanation:
+For abba, the anagrammatic pairs are: ("ab", "ba"), ("ab", "ab"), ("ba", "ab"), ("ba", "ba").
+For abcd, there are no anagrammatic pairs since there are no repeated characters.
+Sample Output 0:
+4
+0
+
+Problema 12
+Explanation:
+words Vector:
+Predefined strings for numbers 0-30 are stored.
+Includes special cases for "quarter" (15 minutes) and "half" (30 minutes).
+Match Statement:
+Handles each range of minutes:
+0: Prints <hour> o' clock.
+1: Handles singular minute.
+15 and 30: Use specific terms ("quarter" and "half").
+45: Uses "quarter to".
+1..=29 and 31..=59: Handle general cases for minutes past/to the hour.
+Hour Handling:
+For "to" times, the hour is incremented using (h % 12 + 1) to ensure proper wrapping around midnight/noon.
+Input/Output:
+The main function reads input from stdin, parses it, and passes it to the time_in_words function.
+The result is printed.
+Sample Inputs and Outputs:
+Input:
+5
+47
+Output:
+thirteen minutes to six
+Input:
+3
+00
+Output:
+vbnet
+three o' clock
+Input:
+7
+15
+Output:
+quarter past seven
+
+Problema 13
+Explanation:
+Initial Chocolates:
+Calculate 
+chocolates= n/c
+The remaining wrappers=chocolates
+Wrapper Exchange Loop:
+While the number of wrappers ≥m:
+Calculate \text{free_chocolates} = \frac{\text{wrappers}}{m}.
+Add \text{free_chocolates} to the total count.
+Update wrappers with \text{wrappers} = \text{free_chocolates} + (\text{wrappers} \mod m).
+Input Handling:
+Read t, the number of test cases.
+For each test case, parse 𝑛,c,m.
+Call chocolate_feast and print the result.
+Sample Inputs and Outputs:
+Input:
+3
+10 2 5
+12 4 4
+6 2 2
+Output:
+6
+3
+5
+Explanation:
+First Test Case:𝑛=10, c=2, m=5.
+Initial chocolates: 
+Wrappers: 
+5÷5=1 free chocolate.
+
+Problema 14
+Explanation:
+Input Parsing:
+Read n and t.
+Read the width array of length n.
+For each test case, read the start and end indices i and j.
+Finding Minimum:
+For each test case, extract the slice of the width array from i to j.
+Use the iter().min() method to find the smallest value in the slice.
+Output:
+Store the results for each test case in a Vec.
+Print each result on a new line.
